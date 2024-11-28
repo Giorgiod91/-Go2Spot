@@ -5,7 +5,7 @@ type Props = {};
 function LandingPage({}: Props) {
   return (
     <div className="flex flex-col">
-      <h1>go2spot</h1>
+      <h1 className="text-7xl font-black">Find places with go2spot</h1>
       <p>find cool locations in your destination area</p>
     </div>
   );
