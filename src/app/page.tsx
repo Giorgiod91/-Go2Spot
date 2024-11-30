@@ -3,6 +3,7 @@ import Link from "next/link";
 import { LatestPost } from "~/app/_components/post";
 import { api, HydrateClient } from "~/trpc/server";
 import LandingPage from "./_components/LandingPage";
+import NavBar from "./_components/NavBar";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
@@ -10,7 +11,8 @@ export default async function Home() {
   void api.post.getLatest.prefetch();
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gradient-to-b from-[#919192] to-[#15162c] text-white">
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      <NavBar />
       <section className="flex min-h-screen w-full justify-center">
         <LandingPage />
       </section>
