@@ -13,3 +13,8 @@ Discover must-visit spots, party places, and hidden gems in any city you travel 
 - ✍️ **Detailed Descriptions**: Learn about the places you're visiting with insightful text and tips.  
 
 ---
+
+
+
+
+![Screenshot 2024-12-04 013850](https://github.com/user-attachments/assets/eea61aaa-5458-4ee2-b462-898c17ae5ea0)
