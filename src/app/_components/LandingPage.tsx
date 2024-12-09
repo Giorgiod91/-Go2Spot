@@ -7,6 +7,7 @@ import { Barcelona } from "./HardCodedData";
 type Props = {};
 
 function LandingPage({}: Props) {
+  const [clicked, setClicked] = useState(false);
   const [input, setInput] = useState("");
 
   return (
