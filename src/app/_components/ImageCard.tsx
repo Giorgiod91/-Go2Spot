@@ -14,7 +14,9 @@ function ImageCard({ title, img, description, location }: ImageCardProps) {
     setClicked(true);
   };
   //function for one of the buttons to then open more specifics about the place to then be able to book and so on
+  //::TODO: Later add a booking side instead of just google search or maybe a guide site ....
   const OpenLinkOnClick = (title: string) => {
+    //opens a search window with google search and takes the string title as an argument cause i want to search for the title
     window.open(`https://www.google.com/search?q=${title}`);
   };
   return (
