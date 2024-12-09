@@ -24,12 +24,14 @@ function ImageCard({ title, img, description, location }: ImageCardProps) {
         {clicked ? <h1>{description}</h1> : null}
 
         <div className="card-actions">
-          <button
-            onClick={ShowRightText}
-            className="btn btn-primary cursor-pointer"
-          >
-            More Info{" "}
-          </button>
+          {!clicked ? (
+            <button
+              onClick={ShowRightText}
+              className="btn btn-primary cursor-pointer"
+            >
+              More Info{" "}
+            </button>
+          ) : null}
         </div>
       </div>
     </div>
