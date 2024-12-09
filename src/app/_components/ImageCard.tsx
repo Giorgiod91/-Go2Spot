@@ -15,7 +15,7 @@ function ImageCard({ title, img, description, location }: ImageCardProps) {
   };
   //function for one of the buttons to then open more specifics about the place to then be able to book and so on
   const OpenLinkOnClick = (title: string) => {
-    window.open(`https://www.google.com/search/${title}`);
+    window.open(`https://www.google.com/search?q=${title}`);
   };
   return (
     <div className="card w-96 bg-base-100 shadow-xl hover:skew-y-3 hover:border-4 hover:border-dotted">
