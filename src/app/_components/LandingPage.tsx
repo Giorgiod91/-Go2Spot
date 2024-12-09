@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import ImageCard from "./ImageCard";
 import { Barcelona } from "./HardCodedData";
+import InputField from "./InputField";
 
 type Props = {};
 
@@ -14,6 +15,9 @@ function LandingPage({}: Props) {
     <div className="w-7xl flex flex-col items-center">
       <h1 className="text-7xl font-black">Find places with go2spot</h1>
       <p className="">Find cool locations in your destination area</p>
+      <div>
+        <InputField />
+      </div>
 
       <div className="flex flex-row space-x-2 p-2">
         {Barcelona.map((place) => (
