@@ -13,9 +13,15 @@ function ImageCard({ title, img, description, location }: ImageCardProps) {
   const ShowRightText = () => {
     setClicked(true);
   };
+  //function for one of the buttons to then open more specifics about the place to then be able to book and so on
+  const OpenLinkOnClick = (title: string) => {
+    window.open(`https://www.google.com/search/${title}`);
+  };
   return (
     <div className="card w-96 bg-base-100 shadow-xl hover:skew-y-3 hover:border-4 hover:border-dotted">
-      <h1>{location}</h1>
+      <h1 className="items-center justify-center text-xl font-bold">
+        {location}
+      </h1>
       <figure className="px-10 pt-10">
         <img src={img} alt={title} className="rounded-xl" />
       </figure>
@@ -31,7 +37,14 @@ function ImageCard({ title, img, description, location }: ImageCardProps) {
             >
               More Info{" "}
             </button>
-          ) : null}
+          ) : (
+            <button
+              onClick={() => OpenLinkOnClick(title)}
+              className="btn btn-secondary cursor-pointer"
+            >
+              Lets Go{" "}
+            </button>
+          )}
         </div>
       </div>
     </div>
