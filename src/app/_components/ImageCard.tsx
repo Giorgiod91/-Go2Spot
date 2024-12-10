@@ -22,7 +22,7 @@ function ImageCard({ title, img, description, location }: ImageCardProps) {
   return (
     //::TODO: fix border !
     <div className="card w-96 rounded-xl border border-black shadow-xl hover:skew-y-3 hover:border-4 hover:border-dotted">
-      <h1 className="items-center justify-center text-xl font-bold">
+      <h1 className="flex items-center justify-center pt-2 text-xl font-bold">
         {location}
       </h1>
       <figure className="px-10 pt-10">
