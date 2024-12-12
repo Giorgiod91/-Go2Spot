@@ -4,6 +4,7 @@ import { LatestPost } from "~/app/_components/post";
 import { api, HydrateClient } from "~/trpc/server";
 import LandingPage from "./_components/LandingPage";
 import NavBar from "./_components/NavBar";
+import Arrow from "./_components/Arrow";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
@@ -17,6 +18,8 @@ export default async function Home() {
       <section className="flex min-h-screen w-full justify-center">
         <LandingPage />
       </section>
+
+      <section></section>
     </main>
   );
 }

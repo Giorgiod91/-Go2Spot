@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import ImageCard from "./ImageCard";
 import { Barcelona } from "./HardCodedData";
 import InputField from "./InputField";
+import Arrow from "./Arrow";
 
 type Props = {};
 
@@ -30,6 +31,7 @@ function LandingPage({}: Props) {
           />
         ))}
       </div>
+      <Arrow />
     </div>
   );
 }
