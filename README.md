@@ -17,6 +17,7 @@ Discover must-visit spots, party places, and hidden gems in any city you travel 
 
 
 
-![image](https://github.com/user-attachments/assets/0e31955b-1459-4afb-a66e-085fb4bab93c)
+![image](https://github.com/user-attachments/assets/fdbc4e92-6082-4355-a8e1-c9df0546c768)
+
 
 
