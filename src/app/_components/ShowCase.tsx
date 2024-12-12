@@ -7,6 +7,8 @@ import React from "react";
 type Props = {};
 
 function ShowCase({}: Props) {
+  //TODO: ADD the option to showcase where the spots are on the map and also add the method to create waypoints
+  //TODO: let the user add his waypoint start so where the user travels
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-7xl font-extrabold">OverView</h1>
