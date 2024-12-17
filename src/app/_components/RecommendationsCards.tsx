@@ -5,6 +5,7 @@ type Props = {};
 
 function RecommendationsCards({}: Props) {
   const [step, setStep] = useState(1);
+  const [clicked, setClicked] = useState(false);
   const [preferences, setPreferences] = useState({
     vibe: "",
     groupsize: "",
@@ -48,6 +49,11 @@ function RecommendationsCards({}: Props) {
         setTravelRecommendation("Select a group size for recommendations.");
     }
   };
+  const handleVibeClick = () => {
+    handlePreferenceClick("vibe", "Adventure");
+    setClicked(true);
+    setStep(2);
+  };
 
   return (
     <div>
@@ -55,8 +61,10 @@ function RecommendationsCards({}: Props) {
         <div className="carousel rounded-box">
           <h2>What is Your Vibe?</h2>
           <div
-            onClick={() => handlePreferenceClick("vibe", "Adventure")}
-            className="carousel-item relative cursor-pointer hover:scale-105"
+            onClick={handleVibeClick}
+            className={`carousel-item relative cursor-pointer hover:scale-105 ${
+              clicked ? "invisible" : "visible"
+            }`}
           >
             <img
               src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
