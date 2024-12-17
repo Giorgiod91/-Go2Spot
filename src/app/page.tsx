@@ -6,6 +6,7 @@ import LandingPage from "./_components/LandingPage";
 import NavBar from "./_components/NavBar";
 import Arrow from "./_components/Arrow";
 import ShowCase from "./_components/ShowCase";
+import PersonalRecommendation from "./_components/PersonalRecommendation";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
@@ -22,6 +23,10 @@ export default async function Home() {
 
       <section id="showcase" className="h-screen">
         <ShowCase />
+      </section>
+
+      <section id="recommendation" className="h-screen">
+        <PersonalRecommendation />
       </section>
     </main>
   );
