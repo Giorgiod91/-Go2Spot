@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 
 type Props = {};
+//::TODO: i shouold refactor the function handleVibeClick to make one function out of it
 
 function RecommendationsCards({}: Props) {
   const [step, setStep] = useState(1);
@@ -49,10 +50,38 @@ function RecommendationsCards({}: Props) {
         setTravelRecommendation("Select a group size for recommendations.");
     }
   };
+  // functions to set the vibe base on user and get to step 2
   const handleVibeClick = () => {
     handlePreferenceClick("vibe", "Adventure");
     setClicked(true);
     setStep(2);
+  };
+  const handleVibeClick2 = () => {
+    handlePreferenceClick("vibe", "Relaxation");
+    setClicked(true);
+    setStep(2);
+  };
+  const handleVibeClick3 = () => {
+    handlePreferenceClick("vibe", "NightLife");
+    setClicked(true);
+    setStep(2);
+  };
+  // functions to set the group size based on users click
+
+  const handleGroupsizeClick = () => {
+    handlePreferenceClick("groupsize", "1");
+    setClicked(true);
+    setStep(3);
+  };
+  const handleGroupsizeClick2 = () => {
+    handlePreferenceClick("groupsize", "2");
+    setClicked(true);
+    setStep(3);
+  };
+  const handleGroupsizeClick3 = () => {
+    handlePreferenceClick("groupsize", "3");
+    setClicked(true);
+    setStep(3);
   };
 
   return (
@@ -62,9 +91,7 @@ function RecommendationsCards({}: Props) {
           <h2>What is Your Vibe?</h2>
           <div
             onClick={handleVibeClick}
-            className={`carousel-item relative cursor-pointer hover:scale-105 ${
-              clicked ? "invisible" : "visible"
-            }`}
+            className="carousel-item relative cursor-pointer hover:scale-105"
           >
             <img
               src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
@@ -76,7 +103,7 @@ function RecommendationsCards({}: Props) {
             </div>
           </div>
           <div
-            onClick={() => handlePreferenceClick("vibe", "Relaxation")}
+            onClick={handleVibeClick2}
             className="carousel-item relative cursor-pointer hover:scale-105"
           >
             <img
@@ -89,7 +116,7 @@ function RecommendationsCards({}: Props) {
             </div>
           </div>
           <div
-            onClick={() => handlePreferenceClick("vibe", "Nightlife")}
+            onClick={handleVibeClick3}
             className="carousel-item relative cursor-pointer hover:scale-105"
           >
             <img
