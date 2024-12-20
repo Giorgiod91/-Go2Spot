@@ -1,9 +1,11 @@
 "use client";
 import React, { useState } from "react";
 
-type Props = {};
+type Props = {
+  onCityChange: (city: string) => void;
+};
 
-function InputField({}: Props) {
+function InputField({ onCityChange }: Props) {
   const [destination, setDestination] = useState("");
   const [input, setInput] = useState("");
 
@@ -11,7 +13,9 @@ function InputField({}: Props) {
   const handleDestinationChange = (
     event: React.ChangeEvent<HTMLSelectElement>,
   ) => {
-    setDestination(event.target.value);
+    const city = event.target.value;
+    setDestination(city);
+    onCityChange(city);
   };
   return (
     <div className="h-35 w-[340px] border">

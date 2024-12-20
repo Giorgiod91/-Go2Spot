@@ -2,26 +2,31 @@
 
 import React, { useState } from "react";
 import ImageCard from "./ImageCard";
-import { Barcelona } from "./HardCodedData";
+import { CityData } from "./HardCodedData";
 import InputField from "./InputField";
 import Arrow from "./Arrow";
 
 type Props = {};
 
 function LandingPage({}: Props) {
-  const [clicked, setClicked] = useState(false);
-  const [input, setInput] = useState("");
+  const [selectedCity, setSelectedCity] = useState("Barcelona");
+
+  // Function to handle city change
+  const handleCityChange = (city: string) => {
+    setSelectedCity(city);
+  };
+  const cityData = CityData[selectedCity];
 
   return (
     <div className="flex max-w-7xl flex-col items-center">
       <h1 className="text-7xl font-black">Find places with go2spot</h1>
       <p className="">Find cool locations in your destination area</p>
       <div>
-        <InputField />
+        <InputField onCityChange={handleCityChange} />
       </div>
 
       <div className="flex flex-row space-x-2 p-2">
-        {Barcelona.map((place) => (
+        {cityData?.map((place) => (
           <ImageCard
             key={place.id}
             title={place.title}
