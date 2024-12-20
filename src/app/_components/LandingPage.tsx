@@ -15,6 +15,7 @@ function LandingPage({}: Props) {
   const handleCityChange = (city: string) => {
     setSelectedCity(city);
   };
+  // i can map over the original Citydata so i create a variable that holds the array of location data
   const cityData = CityData[selectedCity];
 
   return (
