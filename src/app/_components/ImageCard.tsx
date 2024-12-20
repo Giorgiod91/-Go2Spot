@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CityData } from "./HardCodedData";
 
 type ImageCardProps = {
   title: string;
@@ -10,6 +11,7 @@ type ImageCardProps = {
 function ImageCard({ title, img, description, location }: ImageCardProps) {
   //useState and function to keep track if something is clicked to then show the right text thats linked to the spot button that is clicked on
   const [clicked, setClicked] = useState(false);
+  const [choose, setChoose] = useState("");
   const ShowRightText = () => {
     setClicked(true);
   };
@@ -19,8 +21,12 @@ function ImageCard({ title, img, description, location }: ImageCardProps) {
     //opens a search window with google search and takes the string title as an argument cause i want to search for the title
     window.open(`https://www.google.com/search?q=${title}`);
   };
+
+  const ShowOnMap = () => {
+    setChoose(title);
+  };
+
   return (
-    //::TODO: fix border !
     <div className="card w-96 rounded-xl border border-black shadow-xl hover:skew-y-3 hover:border-4 hover:border-dotted">
       <h1 className="flex items-center justify-center pt-2 text-xl font-bold">
         {location}
@@ -48,6 +54,9 @@ function ImageCard({ title, img, description, location }: ImageCardProps) {
               Lets Go{" "}
             </button>
           )}
+          <a href="#showcase">
+            <button onClick={ShowOnMap}>ShowOnTheMap</button>
+          </a>
         </div>
       </div>
     </div>
