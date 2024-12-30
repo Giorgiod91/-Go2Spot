@@ -3,10 +3,12 @@
 import { Map } from "@vis.gl/react-google-maps";
 import { MapCameraChangedEvent } from "@vis.gl/react-google-maps";
 import React from "react";
+import { useChoose } from "context/ChooseContext";
 
 type Props = {};
 
 function ShowCase({}: Props) {
+  const { choose } = useChoose();
   //::TODO: add the values into a database to get rid of all the data later on when the data starts scaling with many spots
   const locationCoordinates = {
     "Sagrada Familia": { lat: 41.4036, lng: 2.1744 },
@@ -23,7 +25,7 @@ function ShowCase({}: Props) {
   //TODO: let the user add his waypoint start so where the user travels
   return (
     <div className="flex flex-col items-center justify-center">
-      <h1 className="text-7xl font-extrabold">OverView</h1>
+      <h1 className="text-7xl font-extrabold">Waypoints</h1>
       <div className="max-w-7xl" style={{ width: "100%", height: "500px" }}>
         <Map
           defaultZoom={13}
@@ -39,6 +41,11 @@ function ShowCase({}: Props) {
         />
         <div className="flex">
           <button></button>
+        </div>
+        <div className="flex border">
+          {" "}
+          <h1>my locations</h1>
+          <p className="text-2xl text-red-500">{choose}</p>
         </div>
       </div>
     </div>

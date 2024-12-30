@@ -5,6 +5,7 @@ import { type Metadata } from "next";
 
 import { TRPCReactProvider } from "~/trpc/react";
 import MapClientComponent from "./_components/MapClientComponent";
+import { ChooseProvider } from "context/ChooseContext";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -19,7 +20,9 @@ export default function RootLayout({
     <html lang="en" data-theme="retro" className={`${GeistSans.variable}`}>
       <body>
         <TRPCReactProvider>
-          <MapClientComponent>{children}</MapClientComponent>
+          <MapClientComponent>
+            <ChooseProvider>{children}</ChooseProvider>
+          </MapClientComponent>
         </TRPCReactProvider>
       </body>
     </html>

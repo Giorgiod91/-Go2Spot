@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CityData } from "./HardCodedData";
+import { useChoose } from "context/ChooseContext";
 
 type ImageCardProps = {
   title: string;
@@ -11,7 +12,8 @@ type ImageCardProps = {
 function ImageCard({ title, img, description, location }: ImageCardProps) {
   //useState and function to keep track if something is clicked to then show the right text thats linked to the spot button that is clicked on
   const [clicked, setClicked] = useState(false);
-  const [choose, setChoose] = useState("");
+
+  const { setChoose } = useChoose();
   const ShowRightText = () => {
     setClicked(true);
   };
@@ -38,7 +40,7 @@ function ImageCard({ title, img, description, location }: ImageCardProps) {
         <h2 className="card-title">{title}</h2>
         {clicked ? <h1>{description}</h1> : null}
 
-        <div className="card-actions">
+        <div className="card-actions flex flex-col items-center">
           {!clicked ? (
             <button
               onClick={ShowRightText}
@@ -54,9 +56,8 @@ function ImageCard({ title, img, description, location }: ImageCardProps) {
               Lets Go{" "}
             </button>
           )}
-          <a href="#showcase">
-            <button onClick={ShowOnMap}>ShowOnTheMap</button>
-          </a>
+
+          <button onClick={ShowOnMap}>ShowOnTheMap</button>
         </div>
       </div>
     </div>
