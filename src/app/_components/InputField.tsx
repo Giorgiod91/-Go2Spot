@@ -18,13 +18,14 @@ function InputField({ onCityChange }: Props) {
     onCityChange(city);
   };
   return (
-    <div className="h-35 w-[340px] border">
+    <div className="h-35 w-[440px] border-gray-300 p-5">
       <input
-        className="w-full text-black"
+        className="h-[60px] w-full rounded-lg text-black"
         type="Your Destination"
         placeholder="Your Destination"
       />
       <select
+        className="w-full"
         onChange={handleDestinationChange}
         value={destination}
         name=""
