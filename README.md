@@ -26,7 +26,8 @@ Go2Spot helps you discover must-visit spots, party places, and hidden gems in an
 
 
 
-![image](https://github.com/user-attachments/assets/f1a6c9fa-4468-4484-bd48-57a23a73aaa2)
+![image](https://github.com/user-attachments/assets/303dbc63-23bb-4bc8-97c9-f61d962a3deb)
+
 
 
 
