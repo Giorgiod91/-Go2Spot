@@ -22,6 +22,11 @@ Go2Spot helps you discover must-visit spots, party places, and hidden gems in an
   - **Framer Motion**
   - **React**
   - **Vercel** (for deployment)
+ 
+
+# Things in Learned from this project
+- using React Context to pass value of local state through the whole app using a custom provider
+- using Google Maps JavaScript API
   
 
 
