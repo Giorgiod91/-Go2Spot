@@ -20,8 +20,13 @@ function LandingPage({}: Props) {
 
   return (
     <div className="flex max-w-7xl flex-col items-center">
-      <h1 className="text-7xl font-black">Find places with go2spot</h1>
-      <p className="">Find cool locations in your destination area</p>
+      <h1 className="text-7xl font-black text-white">
+        Find places with go2spot
+      </h1>
+      <p className="text-lg text-[#b0b0b0]">
+        Find cool locations in your destination area
+      </p>
+
       <div>
         <InputField onCityChange={handleCityChange} />
       </div>

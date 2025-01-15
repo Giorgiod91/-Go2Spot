@@ -4,13 +4,17 @@ type Props = {};
 
 function NavBar({}: Props) {
   return (
-    <div className="mx-auto flex w-full items-center justify-between bg-primary px-4">
+    <div className="mx-auto flex w-full items-center justify-between bg-[#121212] px-6 py-4 shadow-md">
       <div className="flex items-center">
-        <h2 className="text-2xl">go2spot</h2>
+        <h2 className="text-2xl font-bold text-white">go2spot</h2>
       </div>
-      <div className="flex items-center space-x-4">
-        <h2>Info</h2>
-        <h2>Contact</h2>
+      <div className="flex items-center space-x-8">
+        <h2 className="cursor-pointer text-lg text-[#b0b0b0] transition-all duration-300 ease-in-out hover:text-[#4a90e2]">
+          Info
+        </h2>
+        <h2 className="cursor-pointer text-lg text-[#b0b0b0] transition-all duration-300 ease-in-out hover:text-[#4a90e2]">
+          Contact
+        </h2>
       </div>
     </div>
   );
