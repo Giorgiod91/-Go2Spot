@@ -31,7 +31,7 @@ function LandingPage({}: Props) {
         <InputField onCityChange={handleCityChange} />
       </div>
 
-      <div className="flex flex-row space-x-2 p-2">
+      <div className="flex flex-row space-x-5 p-2">
         {cityData?.map((place) => (
           <ImageCard
             key={place.id}
