@@ -17,7 +17,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-theme="retro" className={`${GeistSans.variable}`}>
+    <html lang="en" className={`${GeistSans.variable}`}>
       <body>
         <TRPCReactProvider>
           <MapClientComponent>

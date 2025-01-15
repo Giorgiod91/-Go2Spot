@@ -29,36 +29,42 @@ function ImageCard({ title, img, description, location }: ImageCardProps) {
   };
 
   return (
-    <div className="card w-96 rounded-xl border border-black shadow-xl hover:skew-y-3 hover:border-4 hover:border-dotted">
-      <h1 className="flex items-center justify-center pt-2 text-xl font-bold">
+    <div className="card w-96 rounded-3xl border-none bg-gradient-to-r from-[#2b2b2b] to-[#1a1a1a] shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+      <h1 className="flex items-center justify-center pt-2 text-2xl font-semibold text-white opacity-90">
         {location}
       </h1>
-      <figure className="px-10 pt-10">
-        <img src={img} alt={title} className="rounded-xl" />
+      <figure className="px-8 pt-8">
+        <img
+          src={img}
+          alt={title}
+          className="transform rounded-3xl border-2 border-[#4b4b4b] shadow-xl transition-all duration-300 ease-in-out hover:scale-105"
+        />
       </figure>
-      <div className="card-body items-center text-center">
-        <h2 className="card-title">{title}</h2>
-        {clicked ? <h1>{description}</h1> : null}
+      <div className="card-body text-center text-white">
+        <h2 className="card-title text-xl font-semibold text-[#d9905e]">
+          {title}
+        </h2>
 
-        <div className="card-actions flex flex-col items-center">
-          {!clicked ? (
-            <button
-              onClick={ShowRightText}
-              className="btn btn-primary cursor-pointer"
-            >
-              More Info{" "}
-            </button>
-          ) : (
-            <button
-              onClick={() => OpenLinkOnClick(title)}
-              className="btn btn-secondary cursor-pointer"
-            >
-              Lets Go{" "}
-            </button>
-          )}
+        <button
+          onClick={ShowRightText}
+          className="btn cursor-pointer rounded-full bg-[#d9905e] px-6 py-3 text-lg font-semibold text-white transition-all duration-300 ease-in-out hover:bg-[#c77f50]"
+        >
+          More Info
+        </button>
 
-          <button onClick={ShowOnMap}>ShowOnTheMap</button>
-        </div>
+        <button
+          onClick={() => OpenLinkOnClick(title)}
+          className="btn cursor-pointer rounded-full bg-[#34495e] px-6 py-3 text-lg font-semibold text-white transition-all duration-300 ease-in-out hover:bg-[#2c3e50]"
+        >
+          Let's Go
+        </button>
+
+        <button
+          onClick={ShowOnMap}
+          className="btn btn-outline rounded-full border-[#d9905e] px-6 py-3 text-lg font-semibold text-[#d9905e] transition-all duration-300 ease-in-out hover:bg-[#d9905e] hover:text-white"
+        >
+          Show on Map
+        </button>
       </div>
     </div>
   );
