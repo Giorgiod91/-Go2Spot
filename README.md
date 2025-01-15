@@ -3,7 +3,11 @@
 **Your Ultimate Travel Companion**  
 Go2Spot helps you discover must-visit spots, party places, and hidden gems in any city you travel to. Whether you're planning a vacation or a spontaneous weekend getaway, Go2Spot offers curated recommendations, complete with pictures and detailed descriptions, to ensure you never miss out on the best experiences.
 
----
+![image](https://github.com/user-attachments/assets/cbf934fe-ed1b-41f1-94ab-613bfacf12e9)
+
+![image](https://github.com/user-attachments/assets/06a487c7-a649-4a81-ab46-007e7f70952e)
+
+
 
 ## Features 🚀
 
@@ -31,7 +35,6 @@ Go2Spot helps you discover must-visit spots, party places, and hidden gems in an
 
 
 
-![image](https://github.com/user-attachments/assets/303dbc63-23bb-4bc8-97c9-f61d962a3deb)
 
 
 
