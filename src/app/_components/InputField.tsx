@@ -18,18 +18,16 @@ function InputField({ onCityChange }: Props) {
     onCityChange(city);
   };
   return (
-    <div className="h-35 w-[440px] border-gray-300 p-5">
+    <div className="h-35 w-[440px] rounded-lg bg-[#f5f5f5] p-5 shadow-md">
       <input
-        className="h-[60px] w-full rounded-lg text-black"
-        type="Your Destination"
+        className="h-[60px] w-full rounded-lg border-2 border-[#e0e0e0] text-[#333333] placeholder-gray-400 transition-all duration-300 ease-in-out hover:shadow-md focus:border-[#4a90e2]"
+        type="text"
         placeholder="Your Destination"
       />
       <select
-        className="w-full"
+        className="mt-4 w-full rounded-lg border-2 border-[#e0e0e0] bg-white text-[#333333] transition-all duration-300 ease-in-out hover:shadow-md focus:border-[#4a90e2]"
         onChange={handleDestinationChange}
         value={destination}
-        name=""
-        id=""
       >
         <option value="" disabled>
           Check out most viewed ones
