@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Map } from "@vis.gl/react-google-maps";
 import { MapCameraChangedEvent } from "@vis.gl/react-google-maps";
 import { useChoose } from "context/ChooseContext";
+import { input } from "motion/react-client";
 
 type Props = {};
 
@@ -45,9 +46,33 @@ function ShowCase({}: Props) {
     }
   }, [choose]);
 
+  let userLocation = "";
+  const handleChange = (e: { target: { value: string } }) => {
+    userLocation = e.target.value;
+    e.target.value = userLocation;
+  };
+
+  // get user location to olater use those to create waypoints and show how far away destinations are
+  // later use my backend to check if the town the user is in is in my backend with lat and lng
+  const getUserLocationFromBackend = (userLocation: string) => {
+    const backendUrl = "";
+    let lat = 0;
+    let lng = 0;
+    // for now hardcoded but need to fetch from python backend
+    let locationArray = "";
+    if (locationArray.includes(userLocation)) {
+      return { lat, lng };
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-7xl font-extrabold text-white">Waypoints</h1>
+      <div>
+        <h2>current location ?</h2>
+        <input value={userLocation} onChange={handleChange} type="text" />
+        <p>{userLocation}</p>
+      </div>
       <div className="max-w-7xl" style={{ width: "100%", height: "500px" }}>
         <Map
           zoom={13}
