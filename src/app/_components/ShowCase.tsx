@@ -69,7 +69,7 @@ function ShowCase({}: Props) {
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-7xl font-extrabold text-white">Waypoints</h1>
       <div className="p-5">
-        <h2>current location ?</h2>
+        <h2 className="text-red-600">current location ?</h2>
         <input value={userLocation} onChange={handleChange} type="text" />
         <p>{userLocation}</p>
       </div>
@@ -92,6 +92,9 @@ function ShowCase({}: Props) {
             {selectedLocation || "No location selected yet."}
           </p>
         </div>
+      </div>
+      <div>
+        <h2 className="text-2xl text-red-500">Location List</h2>
       </div>
     </div>
   );

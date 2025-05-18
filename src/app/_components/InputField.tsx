@@ -18,7 +18,7 @@ function InputField({ onCityChange }: Props) {
     onCityChange(city);
   };
   return (
-    <div className="h-35 w-[440px] rounded-lg bg-[#f5f5f5] p-5 shadow-md">
+    <div className="h-[140px] w-[440px] p-5 shadow-md">
       <input
         className="flex h-[60px] w-full justify-center rounded-lg border-2 border-[#e0e0e0] text-[#333333] placeholder-gray-400 transition-all duration-300 ease-in-out hover:shadow-md focus:border-[#4a90e2]"
         type="text"
