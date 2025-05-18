@@ -68,7 +68,7 @@ function ShowCase({}: Props) {
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-7xl font-extrabold text-white">Waypoints</h1>
-      <div>
+      <div className="p-5">
         <h2>current location ?</h2>
         <input value={userLocation} onChange={handleChange} type="text" />
         <p>{userLocation}</p>
