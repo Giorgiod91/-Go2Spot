@@ -12,7 +12,7 @@ function Arrow({}: Props) {
     setNewHref("#showcase");
   };
   return (
-    <div className="cursor-pointer hover:scale-110">
+    <div className="z-0 cursor-pointer hover:scale-110">
       <a href={newHref}>
         <button onClick={navigateOnPress}>
           <h1 className="text-center text-6xl font-bold text-black">⬇️</h1>
