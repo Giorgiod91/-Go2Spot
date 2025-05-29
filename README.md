@@ -3,10 +3,6 @@
 **Your Ultimate Travel Companion**  
 Go2Spot helps you discover must-visit spots, party places, and hidden gems in any city you travel to. Powered by a machine learning backend built with Python, Go2Spot offers personalized recommendations tailored to your preferences and travel style. Whether you're planning a vacation or a spontaneous weekend getaway, complete with pictures, detailed descriptions, and user reviews. With Go2Spot, you’ll never miss out on the top experiences wherever you go!
 
-![image](https://github.com/user-attachments/assets/c2aa9da9-369a-4594-9012-034f7107efc1)
-
-
-![image](https://github.com/user-attachments/assets/06a487c7-a649-4a81-ab46-007e7f70952e)
 
 
 
