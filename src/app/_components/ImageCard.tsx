@@ -29,39 +29,39 @@ function ImageCard({ title, img, description, location }: ImageCardProps) {
   };
 
   return (
-    <div className="card w-96 rounded-3xl border-none bg-gradient-to-r from-[#2b2b2b] to-[#1a1a1a] shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
-      <h1 className="flex items-center justify-center pt-2 text-2xl font-semibold text-white opacity-90">
+    <div className="card w-96 rounded-3xl border-none bg-purple-50 shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
+      <h1 className="flex items-center justify-center pt-2 text-2xl font-semibold text-gray-700 opacity-90">
         {location}
       </h1>
       <figure className="px-8 pt-8">
         <img
           src={img}
           alt={title}
-          className="transform rounded-3xl border-2 border-[#4b4b4b] shadow-xl transition-all duration-300 ease-in-out hover:scale-105"
+          className="transform rounded-3xl border-2 border-[#2c2c2e] shadow-xl transition-all duration-300 ease-in-out hover:scale-105"
         />
       </figure>
       <div className="card-body text-center text-white">
-        <h2 className="card-title text-xl font-semibold text-[#d9905e]">
+        <h2 className="card-title text-xl font-semibold text-[#a760ff]">
           {title}
         </h2>
 
         <button
           onClick={ShowRightText}
-          className="btn cursor-pointer rounded-full bg-[#d9905e] px-6 py-3 text-lg font-semibold text-white transition-all duration-300 ease-in-out hover:bg-[#c77f50]"
+          className="btn cursor-pointer rounded-full bg-[#8a2bff] px-6 py-3 text-lg font-semibold text-white transition-all duration-300 ease-in-out hover:bg-[#a760ff]"
         >
           More Info
         </button>
 
         <button
           onClick={() => OpenLinkOnClick(title)}
-          className="btn cursor-pointer rounded-full bg-[#34495e] px-6 py-3 text-lg font-semibold text-white transition-all duration-300 ease-in-out hover:bg-[#2c3e50]"
+          className="btn cursor-pointer rounded-full bg-[#2c2c2e] px-6 py-3 text-lg font-semibold text-white transition-all duration-300 ease-in-out hover:bg-[#3a3a3c]"
         >
           Let's Go
         </button>
 
         <button
           onClick={ShowOnMap}
-          className="btn btn-outline rounded-full border-[#d9905e] px-6 py-3 text-lg font-semibold text-[#d9905e] transition-all duration-300 ease-in-out hover:bg-[#d9905e] hover:text-white"
+          className="btn btn-outline rounded-full border-[#c494ff] px-6 py-3 text-lg font-semibold text-[#c494ff] transition-all duration-300 ease-in-out hover:bg-[#c494ff] hover:text-black"
         >
           Show on Map
         </button>
