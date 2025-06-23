@@ -8,6 +8,10 @@ import Arrow from "./_components/Arrow";
 import ShowCase from "./_components/ShowCase";
 import PersonalRecommendation from "./_components/PersonalRecommendation";
 import SoloTravel from "./_components/SoloTravel";
+import ImageCard from "./_components/ImageCard";
+
+import { object } from "zod";
+import ShowCards from "./_components/ShowCards";
 
 export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
@@ -15,7 +19,7 @@ export default async function Home() {
   void api.post.getLatest.prefetch();
 
   return (
-    <main className="flex min-h-screen flex-col">
+    <main className="bg-glassBg flex min-h-screen flex-col">
       <NavBar />
 
       <section className="flex min-h-screen w-full justify-center">
@@ -26,11 +30,14 @@ export default async function Home() {
         <ShowCase />
       </section>
 
-      <section id="recommendation" className="h-screen">
-        <PersonalRecommendation />
-      </section>
       <section id="solo" className="h-screen">
         <SoloTravel />
+      </section>
+
+      <section className="h-screen bg-base-200"></section>
+
+      <section id="recommendation" className="h-screen">
+        <PersonalRecommendation />
       </section>
     </main>
   );

@@ -7,7 +7,7 @@ type Props = {};
 
 function PersonalRecommendation({}: Props) {
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <h2> Personalize Your Experience </h2>
       <p> Answer a few questions to get tailored recommendations.</p>
       <RecommendationsCards />
