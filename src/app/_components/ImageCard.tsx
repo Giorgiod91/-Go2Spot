@@ -1,6 +1,8 @@
+"use client";
 import { useState } from "react";
 import { CityData } from "./HardCodedData";
 import { useChoose } from "context/ChooseContext";
+import { motion } from "framer-motion";
 
 type ImageCardProps = {
   title: string;
@@ -29,44 +31,66 @@ function ImageCard({ title, img, description, location }: ImageCardProps) {
   };
 
   return (
-    <div className="card w-96 rounded-3xl border-none bg-purple-50 shadow-lg transition-transform duration-300 ease-in-out hover:scale-105">
-      <h1 className="flex items-center justify-center pt-2 text-2xl font-semibold text-gray-700 opacity-90">
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -4 }}
+      transition={{ type: "spring", stiffness: 80, damping: 12 }}
+      className="card w-96 rounded-3xl border border-base-200 bg-base-100 shadow-lg backdrop-blur-md"
+    >
+      <h1 className="pt-4 text-center text-sm font-medium text-neutral-content">
         {location}
       </h1>
-      <figure className="px-8 pt-8">
-        <img
+
+      <figure className="px-6 pt-4">
+        <motion.img
+          whileHover={{ scale: 1.01 }}
+          transition={{ duration: 0.3 }}
           src={img}
           alt={title}
-          className="transform rounded-3xl border-2 border-[#2c2c2e] shadow-xl transition-all duration-300 ease-in-out hover:scale-105"
+          className="rounded-2xl shadow-sm"
         />
       </figure>
-      <div className="card-body text-center text-white">
-        <h2 className="card-title text-xl font-semibold text-[#a760ff]">
+
+      <div className="card-body items-center text-center">
+        <h2 className="card-title text-lg font-semibold text-primary">
           {title}
         </h2>
 
-        <button
-          onClick={ShowRightText}
-          className="btn cursor-pointer rounded-full bg-[#8a2bff] px-6 py-3 text-lg font-semibold text-white transition-all duration-300 ease-in-out hover:bg-[#a760ff]"
-        >
-          More Info
-        </button>
+        <p className="text-sm text-neutral-content/80">
+          {clicked && description}
+        </p>
 
-        <button
-          onClick={() => OpenLinkOnClick(title)}
-          className="btn cursor-pointer rounded-full bg-[#2c2c2e] px-6 py-3 text-lg font-semibold text-white transition-all duration-300 ease-in-out hover:bg-[#3a3a3c]"
-        >
-          Let's Go
-        </button>
+        <div className="mt-4 flex w-full flex-col gap-3">
+          <motion.button
+            onClick={ShowRightText}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="hover:bg-neutral-focus btn w-full rounded-full bg-neutral text-white"
+          >
+            More Info
+          </motion.button>
 
-        <button
-          onClick={ShowOnMap}
-          className="btn btn-outline rounded-full border-[#c494ff] px-6 py-3 text-lg font-semibold text-[#c494ff] transition-all duration-300 ease-in-out hover:bg-[#c494ff] hover:text-black"
-        >
-          Show on Map
-        </button>
+          <motion.button
+            onClick={() => OpenLinkOnClick(title)}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="hover:bg-primary-focus btn w-full rounded-full bg-primary text-white"
+          >
+            Let’s Go
+          </motion.button>
+
+          <motion.button
+            onClick={ShowOnMap}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="btn w-full rounded-full bg-base-200 text-base-content hover:bg-base-300"
+          >
+            Show on Map
+          </motion.button>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
