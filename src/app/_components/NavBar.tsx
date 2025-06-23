@@ -1,23 +1,54 @@
+"use client";
 import React from "react";
+import { motion } from "motion/react";
 
 type Props = {};
 
 function NavBar({}: Props) {
   return (
-    <div className="mx-auto flex w-full items-center justify-between bg-purple-50 px-6 py-4 shadow-md">
-      <div className="flex items-center">
-        <h2 className="text-2xl font-bold text-black">go2</h2>
-        <h2 className="text-2xl font-bold text-black">spot</h2>
+    <motion.nav
+      whileTap={{ scale: 0.99 }}
+      className="mx-auto flex w-full items-center justify-between bg-base-200 px-6 py-4 shadow-md"
+    >
+      <div className="flex items-center space-x-1">
+        <motion.h2
+          initial={{ x: -20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-2xl font-bold text-neutral"
+        >
+          go2
+        </motion.h2>
+        <motion.h2
+          initial={{ x: 20, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-2xl font-bold text-primary"
+        >
+          spot
+        </motion.h2>
       </div>
+
       <div className="flex items-center space-x-8">
-        <h2 className="cursor-pointer text-lg text-[#b0b0b0] transition-all duration-300 ease-in-out hover:text-[#4a90e2]">
-          Info
-        </h2>
-        <h2 className="cursor-pointer text-lg text-[#b0b0b0] transition-all duration-300 ease-in-out hover:text-[#4a90e2]">
-          Contact
-        </h2>
+        {["Info", "Contact"].map((item, index) => (
+          <motion.div
+            key={item}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="group relative cursor-pointer"
+          >
+            <motion.h2
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 + index * 0.1 }}
+              className="text-lg text-neutral transition-colors duration-300 group-hover:text-primary"
+            >
+              {item}
+            </motion.h2>
+          </motion.div>
+        ))}
       </div>
-    </div>
+    </motion.nav>
   );
 }
 

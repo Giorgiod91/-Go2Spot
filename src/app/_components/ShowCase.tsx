@@ -66,17 +66,32 @@ function ShowCase({}: Props) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <h1 className="text-7xl font-extrabold text-white">Waypoints</h1>
-      <div className="p-5">
-        <h2 className="text-red-600">current location ?</h2>
-        <input value={userLocation} onChange={handleChange} type="text" />
-        <p>{userLocation}</p>
+    <div className="flex min-h-screen w-full flex-col items-center bg-base-100 px-4 text-base-content">
+      <h1 className="pt-10 text-5xl font-extrabold text-neutral">
+        Waypoints Map
+      </h1>
+
+      <div className="mt-6 w-full max-w-xl rounded-lg bg-base-200 p-6 shadow-md">
+        <h2 className="mb-2 text-lg font-semibold text-primary">
+          Your Current Location : {userLocation}
+        </h2>
+        <input
+          value={userLocation}
+          onChange={handleChange}
+          type="text"
+          placeholder="Enter your city or address"
+          className="input input-bordered w-full"
+        />
+        <p className="pt-2 text-sm text-base-content/70">
+          {userLocation || "Waiting for input..."}
+        </p>
       </div>
-      <div className="max-w-7xl" style={{ width: "100%", height: "500px" }}>
+
+      <div className="mt-10 w-full max-w-7xl rounded-xl border border-neutral shadow-xl">
         <Map
           zoom={13}
-          center={coordinates} // Dynamically update the center
+          center={coordinates}
+          style={{ width: "100%", height: "500px" }}
           onCameraChanged={(ev: MapCameraChangedEvent) =>
             console.log(
               "camera changed:",
@@ -86,15 +101,23 @@ function ShowCase({}: Props) {
             )
           }
         />
-        <div className="flex border">
-          <h1>My Selected Location</h1>
-          <p className="text-2xl text-red-500">
+        <div className="p-4 text-center">
+          <h2 className="text-lg font-semibold text-white">
+            Selected Location:
+          </h2>
+          <p className="text-2xl text-primary">
             {selectedLocation || "No location selected yet."}
           </p>
         </div>
       </div>
-      <div>
-        <h2 className="text-2xl text-red-500">Location List</h2>
+
+      <div className="mt-12 w-full max-w-xl text-center">
+        <h2 className="text-2xl font-bold text-neutral">Available Locations</h2>
+        <ul className="mt-4 list-disc pl-6 text-base-content/80">
+          {locationCoordinates.map((loc) => (
+            <li key={loc.name}>{loc.name}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
