@@ -4,6 +4,7 @@ import { Map } from "@vis.gl/react-google-maps";
 import { MapCameraChangedEvent } from "@vis.gl/react-google-maps";
 import { useChoose } from "context/ChooseContext";
 import { input } from "motion/react-client";
+import { array } from "zod";
 
 type Props = {};
 
@@ -54,15 +55,46 @@ function ShowCase({}: Props) {
 
   // get user location to olater use those to create waypoints and show how far away destinations are
   // later use my backend to check if the town the user is in is in my backend with lat and lng
-  const getUserLocationFromBackend = (userLocation: string) => {
-    const backendUrl = "";
+  const getUserLocationFromBackend = async (userLocation: string) => {
     let lat = 0;
     let lng = 0;
-    // for now hardcoded but need to fetch from python backend
-    let locationArray = "";
-    if (locationArray.includes(userLocation)) {
-      return { lat, lng };
-    }
+    const url = "localhost//::8000";
+    const response = await fetch(url);
+    if (response.ok){
+      const myData = await response.json();
+      const cordinates = myData.find((loc: any) => loc.city == userLocation) 
+      if (cordinates) {
+        return { lat: cordinates.lat, lng: cordinates.lng };
+      } else {
+        return null;
+      }
+        
+        
+      }
+      
+    }    
+  
+    
+
+    
+   
+    
+  };
+
+
+  const showNearestTopRatedPlace = (userLocation: Number, locationCoordinates: any) {
+      let nearest = [] as Array<any>;     
+      
+      if(userLocation) {
+        if(locationCoordinates.coords  && locationCoordinates < 50){
+          nearest.push()
+        }
+      } else {
+        throw new Error("no userlocation found!")
+      };
+
+
+      return nearest;
   };
 
   return (
@@ -121,6 +153,6 @@ function ShowCase({}: Props) {
       </div>
     </div>
   );
-}
+
 
 export default ShowCase;

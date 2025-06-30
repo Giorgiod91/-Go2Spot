@@ -15,7 +15,9 @@ export default function ShowCards({}: Props) {
 
   return (
     <div className="flex flex-col items-center space-y-8">
-      <h1>TEST</h1>
+      <h1 className="max-w-4xl text-center text-4xl font-bold leading-tight text-neutral-800 md:text-6xl dark:text-slate-200">
+        Explore Spots
+      </h1>
       <InputField onCityChange={(newCity) => setCity(newCity)} />
       <div className="flex flex-row space-x-5">
         {spots?.map((spot) => (
