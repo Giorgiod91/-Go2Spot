@@ -8,7 +8,7 @@ function NavBar({}: Props) {
   return (
     <motion.nav
       whileTap={{ scale: 0.99 }}
-      className="mx-auto flex w-full items-center justify-between bg-base-200 px-6 py-4 shadow-md"
+      className="mx-auto flex w-full items-center justify-between bg-[#475569] px-6 py-4 shadow-md"
     >
       <div className="flex items-center space-x-1">
         <motion.h2
@@ -23,7 +23,7 @@ function NavBar({}: Props) {
           initial={{ x: 20, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-2xl font-bold text-primary"
+          className="text-2xl font-bold text-[#fecaca]"
         >
           spot
         </motion.h2>
@@ -41,7 +41,7 @@ function NavBar({}: Props) {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 + index * 0.1 }}
-              className="text-lg text-neutral transition-colors duration-300 group-hover:text-primary"
+              className="text-lg text-neutral transition-colors duration-300 group-hover:text-[#fecaca]"
             >
               {item}
             </motion.h2>
