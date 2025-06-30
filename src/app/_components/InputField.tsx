@@ -20,16 +20,16 @@ function InputField({ onCityChange }: Props) {
   return (
     <div className="h-[140px] w-[440px] p-5 shadow-md">
       <input
-        className="rounded-full border border-[#2c2c2e] bg-[#1c1c1e] px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#8a2bff]"
+        className="w-full rounded-full border border-[#2c2c2e] bg-[#1c1c1e] px-4 py-2 text-white focus:outline-none focus:ring-2"
         placeholder="Choose city..."
       />
 
       <select
-        className="mt-4 w-full rounded-lg border-2 border-[#e0e0e0] bg-white text-[#333333] transition-all duration-300 ease-in-out hover:shadow-md focus:border-[#4a90e2]"
+        className="mt-4 w-full rounded-lg border-2 border-[#e0e0e0] bg-white text-[#333333] transition-all duration-300 ease-in-out hover:shadow-md"
         onChange={handleDestinationChange}
         value={destination}
       >
-        <option className="bg-gray-600 text-black" value="" disabled>
+        <option className="bg-gray-600 text-[#fecaca]" value="" disabled>
           Check out most viewed ones
         </option>
         <option value="Barcelona">Barcelona</option>

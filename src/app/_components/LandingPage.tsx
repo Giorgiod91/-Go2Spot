@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { LandingPageCards } from "./LandingPageCards";
+import { div, h1 } from "motion/react-client";
 
 type Props = {};
 
@@ -15,7 +16,7 @@ function LandingPage({}: Props) {
     },
     {
       title: "Browse Spots",
-      src: "/cards.png",
+      src: "/cards1.png",
       desc: "See top-rated places with images and tips.",
     },
     {
@@ -24,7 +25,10 @@ function LandingPage({}: Props) {
       desc: "Visualize your picks and plan your trip.",
     },
   ];
-
+  //:TODO: create a function that will use an intervall to activate the hover affect on the cards by its own for visual effect
+  // const changeHoverState =() =>{
+  //   setHovered={setHovered}
+  // }
   return (
     <div className="flex min-h-screen flex-col items-center px-6 py-20 text-base-content">
       <motion.h1
@@ -56,7 +60,7 @@ function LandingPage({}: Props) {
         {" "}
         <button className="relative p-[3px]">
           <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500" />
-          <div className="group relative rounded-[6px] bg-black px-8 py-2 text-white transition duration-200 hover:bg-transparent">
+          <div className="group relative rounded-[6px] bg-black px-8 py-2 text-white transition duration-200 hover:bg-[#475569] hover:text-[#fecaca]">
             Start Exploring
           </div>
         </button>
