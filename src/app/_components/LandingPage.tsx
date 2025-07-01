@@ -5,9 +5,13 @@ import { motion } from "motion/react";
 import { LandingPageCards } from "./LandingPageCards";
 import { div, h1 } from "motion/react-client";
 
+import { useRouter } from "next/navigation";
+
 type Props = {};
 
 function LandingPage({}: Props) {
+  const router = useRouter();
+
   const cards = [
     {
       title: "Pick a Vibe",
@@ -29,6 +33,12 @@ function LandingPage({}: Props) {
   // const changeHoverState =() =>{
   //   setHovered={setHovered}
   // }
+  // function change href on buttonclick so u get directed to the part with next.js router
+
+  const handleOnlick = () => {
+    router.push("#recommendation");
+  };
+
   return (
     <div className="flex min-h-screen flex-col items-center px-6 py-20 text-base-content">
       <motion.h1
@@ -58,7 +68,7 @@ function LandingPage({}: Props) {
         className="mt-10"
       >
         {" "}
-        <button className="relative p-[3px]">
+        <button onClick={handleOnlick} className="relative p-[3px]">
           <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500" />
           <div className="group relative rounded-[6px] bg-black px-8 py-2 text-white transition duration-200 hover:bg-[#475569] hover:text-[#fecaca]">
             Start Exploring
