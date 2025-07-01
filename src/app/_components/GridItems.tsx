@@ -10,8 +10,8 @@ function GridItems({ logo, heading, description }: Props) {
   return (
     <div className="flex flex-col gap-4 rounded-xl p-5">
       <div>{logo}</div>
-      <h2 className="text-2xl text-white">{heading}</h2>
-      <p className="text-white/50">{description}</p>
+      <h2 className="text-2xl text-neutral-200">{heading}</h2>
+      <p className="text-neutral-400">{description}</p>
     </div>
   );
 }

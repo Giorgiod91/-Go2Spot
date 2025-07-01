@@ -18,6 +18,8 @@ export default async function Home() {
   const hello = await api.post.hello({ text: "from tRPC" });
 
   void api.post.getLatest.prefetch();
+  //#475569
+  //
 
   return (
     <main className="flex min-h-screen flex-col gap-5 bg-glassBg">
@@ -27,7 +29,10 @@ export default async function Home() {
         <LandingPage />
       </section>
 
-      <section id="showcase" className="h-screen"></section>
+      <section id="showcase" className="h-[250px]"></section>
+      <section className="min-h-screen bg-black">
+        <GridLayout />
+      </section>
 
       <section id="solo" className="h-screen">
         <SoloTravel />
@@ -41,9 +46,6 @@ export default async function Home() {
 
       <section className="min-h-screen">
         <ShowCards />
-      </section>
-      <section className="min-h-screen bg-[#0a0a0a]">
-        <GridLayout />
       </section>
     </main>
   );

@@ -62,7 +62,9 @@ const gridContent = [
 function GridLayout({}: Props) {
   return (
     <div className="flex flex-col items-center justify-center gap-5">
-      <h1 className="text-xl text-white">kdkdkdkd</h1>
+      <h1 className="p-5 text-4xl font-bold leading-tight text-white">
+        What can u find here ?
+      </h1>
       <div className="grid grid-cols-3 gap-4">
         {gridContent.map((item, index) => (
           <motion.div
@@ -71,7 +73,7 @@ function GridLayout({}: Props) {
             whileHover={{ scale: 1.03 }}
             transition={{ ease: "easeOut", duration: 1 }}
             key={index}
-            className="border-bg-gradient-to-r flex h-[250px] w-[400px] cursor-pointer flex-col rounded-xl border border-gray-300/50 bg-[#161616] ring-[#fecaca] hover:shadow-lg hover:ring-4"
+            className="border-bg-gradient-to-r flex h-[250px] w-[400px] cursor-pointer flex-col rounded-xl border border-neutral-700 bg-neutral-900 ring-[#fecaca] hover:shadow-lg hover:ring-4"
           >
             <GridItems
               logo={item.logo}
