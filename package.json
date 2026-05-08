@@ -28,7 +28,7 @@
     "go2spot": "file:",
     "lucide-react": "^1.14.0",
     "motion": "^11.18.2",
-    "next": "^15.0.1",
+    "next": "15.0.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
