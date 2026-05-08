@@ -1,14 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Map } from "@vis.gl/react-google-maps";
-import { MapCameraChangedEvent } from "@vis.gl/react-google-maps";
+import type { MapCameraChangedEvent } from "@vis.gl/react-google-maps";
 import { useChoose } from "context/ChooseContext";
-import { input } from "motion/react-client";
-import { array } from "zod";
 
-type Props = {};
-
-function ShowCase({}: Props) {
+function ShowCase() {
   const { choose } = useChoose();
   const [coordinates, setCoordinates] = useState({
     lat: -33.860664,
@@ -31,8 +27,8 @@ function ShowCase({}: Props) {
     { name: "Museum Island", coords: { lat: 52.516, lng: 13.4013 } },
   ];
 
-  const checkWhichIsPicked = (choose: string) => {
-    const location = locationCoordinates.find((loc) => loc.name === choose);
+  const checkWhichIsPicked = (pick: string) => {
+    const location = locationCoordinates.find((loc) => loc.name === pick);
     if (location) {
       setCoordinates(location.coords);
       setSelectedLocation(location.name);
@@ -45,56 +41,12 @@ function ShowCase({}: Props) {
     if (choose) {
       checkWhichIsPicked(choose);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [choose]);
 
-  let userLocation = "";
-  const handleChange = (e: { target: { value: string } }) => {
-    userLocation = e.target.value;
-    e.target.value = userLocation;
-  };
-
-  // get user location to olater use those to create waypoints and show how far away destinations are
-  // later use my backend to check if the town the user is in is in my backend with lat and lng
-  const getUserLocationFromBackend = async (userLocation: string) => {
-    let lat = 0;
-    let lng = 0;
-    const url = "localhost//::8000";
-    const response = await fetch(url);
-    if (response.ok){
-      const myData = await response.json();
-      const cordinates = myData.find((loc: any) => loc.city == userLocation) 
-      if (cordinates) {
-        return { lat: cordinates.lat, lng: cordinates.lng };
-      } else {
-        return null;
-      }
-        
-        
-      }
-      
-    }    
-  
-    
-
-    
-   
-    
-  };
-
-
-  const showNearestTopRatedPlace = (userLocation: Number, locationCoordinates: any) {
-      let nearest = [] as Array<any>;     
-      
-      if(userLocation) {
-        if(locationCoordinates.coords  && locationCoordinates < 50){
-          nearest.push()
-        }
-      } else {
-        throw new Error("no userlocation found!")
-      };
-
-
-      return nearest;
+  const [userLocation, setUserLocation] = useState("");
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserLocation(e.target.value);
   };
 
   return (
@@ -153,6 +105,6 @@ function ShowCase({}: Props) {
       </div>
     </div>
   );
-
+}
 
 export default ShowCase;

@@ -49,7 +49,7 @@ function SoloTravel() {
         className="mt-6 max-w-xl text-center text-lg text-neutral-600 dark:text-neutral-400"
       >
         Go2Spot is built for solo explorers — get personalized recommendations
-        based on your vibe, not anyone else's.
+        based on your vibe, not anyone else&apos;s.
       </motion.p>
 
       <div className="mt-14 grid w-full max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">

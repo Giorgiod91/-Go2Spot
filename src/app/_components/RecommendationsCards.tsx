@@ -1,10 +1,9 @@
 "use client";
 import React, { useState } from "react";
 
-type Props = {};
 //::TODO: i shouold refactor the function handleVibeClick to make one function out of it
 
-function RecommendationsCards({}: Props) {
+function RecommendationsCards() {
   const [step, setStep] = useState(1);
   const [clicked, setClicked] = useState(false);
   const [preferences, setPreferences] = useState({

@@ -1,16 +1,13 @@
 "use client";
 import React, { useState } from "react";
 
-type Props = {};
-
-function Arrow({}: Props) {
-  // useState for changing the href for navigation
+function Arrow() {
   const [newHref, setNewHref] = useState("");
-  // this is a simple function that fires onclick that will navigate to a specific area inside the app
 
-  const navigateOnPress = (newHref: any) => {
+  const navigateOnPress = () => {
     setNewHref("#showcase");
   };
+
   return (
     <div className="z-0 cursor-pointer hover:scale-110">
       <a href={newHref}>

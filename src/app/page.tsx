@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { api, HydrateClient } from "~/trpc/server";
 import LandingPage from "./_components/LandingPage";
 import NavBar from "./_components/NavBar";
