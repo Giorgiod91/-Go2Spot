@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { LandingPageCards } from "./LandingPageCards";
-import { div, h1 } from "motion/react-client";
-
 import { useRouter } from "next/navigation";
 
 type Props = {};
