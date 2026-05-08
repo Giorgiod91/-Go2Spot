@@ -5,9 +5,7 @@ import InputField from "./InputField";
 import ImageCard from "./ImageCard";
 import { CityData } from "./HardCodedData";
 
-type Props = {};
-
-export default function ShowCards({}: Props) {
+export default function ShowCards() {
   const [city, setCity] = useState("Barcelona");
 
   // creating new variable to be able to map over cause initial data is an object

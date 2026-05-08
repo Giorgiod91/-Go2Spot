@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "motion/react";
 import { LandingPageCards } from "./LandingPageCards";
 import { useRouter } from "next/navigation";
 
-type Props = {};
-
-function LandingPage({}: Props) {
+function LandingPage() {
   const router = useRouter();
 
   const cards = [
