@@ -1,15 +1,10 @@
 "use client";
 
 import React from "react";
-import { array } from "zod";
 import GridItems from "./GridItems";
 import { FaGlobeAmericas, FaCompass, FaInfoCircle } from "react-icons/fa";
-import { div } from "motion/react-client";
 import { motion } from "motion/react";
 
-type Props = {};
-
-const Grid = new Array(9).fill("");
 const gridContent = [
   {
     logo: <FaGlobeAmericas className="text-2xl text-white" />,
@@ -57,23 +52,27 @@ const gridContent = [
     description: "Most photographed locations nearby.",
   },
 ];
-// border-gray-300/50
 
-function GridLayout({}: Props) {
+function GridLayout() {
   return (
-    <div className="flex flex-col items-center justify-center gap-5">
-      <h1 className="p-5 text-4xl font-bold leading-tight text-white">
-        What can u find here ?
-      </h1>
-      <div className="grid grid-cols-3 gap-4">
+    <div className="flex flex-col items-center justify-center gap-8 px-6 py-16 lg:px-8">
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center text-3xl font-bold leading-tight text-white sm:text-4xl"
+      >
+        What can you find here?
+      </motion.h2>
+      <div className="grid w-full max-w-6xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {gridContent.map((item, index) => (
           <motion.div
-            initial={{ x: -200 }}
-            whileInView={{ x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.03 }}
-            transition={{ ease: "easeOut", duration: 1 }}
+            transition={{ ease: "easeOut", duration: 0.4, delay: index * 0.05 }}
             key={index}
-            className="border-bg-gradient-to-r flex h-[250px] w-[400px] cursor-pointer flex-col rounded-xl border border-neutral-700 bg-neutral-900 ring-[#fecaca] hover:shadow-lg hover:ring-4"
+            className="flex h-auto min-h-[160px] cursor-pointer flex-col rounded-xl border border-neutral-700 bg-neutral-900 ring-[#fecaca] hover:shadow-lg hover:ring-2"
           >
             <GridItems
               logo={item.logo}
