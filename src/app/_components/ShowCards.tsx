@@ -19,7 +19,7 @@ export default function ShowCards({}: Props) {
         Explore Spots
       </h1>
       <InputField onCityChange={(newCity) => setCity(newCity)} />
-      <div className="flex flex-row space-x-5">
+      <div className="grid w-full max-w-5xl grid-cols-1 gap-6 px-6 sm:grid-cols-2 lg:grid-cols-3">
         {spots?.map((spot) => (
           <ImageCard
             key={spot.id}

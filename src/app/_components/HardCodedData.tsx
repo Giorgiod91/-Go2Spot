@@ -1,5 +1,3 @@
-import { describe } from "node:test";
-
 type City = {
   id: number;
   title: string;

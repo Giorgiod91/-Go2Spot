@@ -18,7 +18,7 @@ function InputField({ onCityChange }: Props) {
     onCityChange(city);
   };
   return (
-    <div className="h-[140px] w-[440px] p-5 shadow-md">
+    <div className="w-full max-w-md px-4 py-5 shadow-md">
       <input
         className="w-full rounded-full border border-[#2c2c2e] bg-[#1c1c1e] px-4 py-2 text-white focus:outline-none focus:ring-2"
         placeholder="Choose city..."
