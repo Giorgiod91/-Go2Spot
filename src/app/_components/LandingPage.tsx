@@ -115,9 +115,23 @@ function LandingPage() {
 
       {/* How it works */}
       <section className="mt-28 w-full max-w-5xl">
-        <h2 className="mb-10 text-center text-2xl font-bold text-slate-700">
-          How It Works
-        </h2>
+        <motion.div
+          initial={{ opacity: 0, y: -16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55 }}
+          className="mb-14 text-center"
+        >
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[#7F5AF0]">
+            How It Works
+          </p>
+          <h2 className="text-3xl font-bold text-slate-800 md:text-4xl">
+            Three steps to your next spot
+          </h2>
+          <p className="mt-2 text-slate-500">
+            Simple, fast, and personalised to your vibe.
+          </p>
+        </motion.div>
         <LandingPageCards cards={cards} />
       </section>
     </div>
