@@ -1,72 +1,53 @@
 "use client";
 
-import React, { useState } from "react";
-import { cn } from "../../../lib/utils";
+import React from "react";
 import { motion } from "motion/react";
+import { SlidersHorizontal, LayoutGrid, MapPin } from "lucide-react";
 
 type Card = {
   title: string;
   src: string;
+  desc: string;
 };
 
-export const Card = React.memo(
-  ({
-    card,
-    index,
-    hovered,
-    setHovered,
-  }: {
-    card: Card;
-    index: number;
-    hovered: number | null;
-    setHovered: React.Dispatch<React.SetStateAction<number | null>>;
-  }) => (
-    <motion.div
-      initial={{ opacity: 0, x: -10 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-      onMouseEnter={() => setHovered(index)}
-      onMouseLeave={() => setHovered(null)}
-      className={cn(
-        "relative aspect-[16/9] h-60 w-[280px] overflow-hidden rounded-lg border border-[#475569] bg-gray-100 transition-all duration-300 ease-out md:h-96 dark:bg-neutral-900",
-        hovered !== null && hovered !== index && "scale-[0.98] blur-sm",
-      )}
-    >
-      <img
-        src={card.src}
-        alt={card.title}
-        className="absolute inset-0 h-full w-full object-cover object-center"
-      />
-      <div
-        className={cn(
-          "absolute inset-0 flex items-end bg-black/50 px-4 py-8 transition-opacity duration-300",
-          hovered === index ? "opacity-100" : "opacity-0",
-        )}
-      >
-        <div className="items-center justify-center bg-gradient-to-b from-neutral-50 to-neutral-200 bg-clip-text text-xl font-medium text-transparent md:text-2xl">
-          {card.title}
-        </div>
-      </div>
-    </motion.div>
-  ),
-);
-
-Card.displayName = "Card";
+const ICONS = [
+  <SlidersHorizontal key="1" className="h-6 w-6" />,
+  <LayoutGrid key="2" className="h-6 w-6" />,
+  <MapPin key="3" className="h-6 w-6" />,
+];
 
 export function LandingPageCards({ cards }: { cards: Card[] }) {
-  const [hovered, setHovered] = useState<number | null>(null);
-
   return (
-    <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-10 md:grid-cols-3 md:px-8">
-      {cards.map((card, index) => (
-        <Card
-          key={card.title}
-          card={card}
-          index={index}
-          hovered={hovered}
-          setHovered={setHovered}
-        />
-      ))}
+    <div className="relative mx-auto w-full max-w-4xl px-4">
+      {/* Connector line — desktop only */}
+      <div className="absolute left-[calc(50%/3+16.67%)] right-[calc(50%/3+16.67%)] top-8 hidden h-0.5 bg-gradient-to-r from-[#7F5AF0]/20 via-[#7F5AF0]/50 to-[#7F5AF0]/20 md:block" />
+
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        {cards.map((card, index) => (
+          <motion.div
+            key={card.title}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-center text-center"
+          >
+            {/* Step circle */}
+            <div className="relative mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#7F5AF0] to-[#5b3dbf] text-white shadow-lg shadow-[#7F5AF0]/30">
+              {ICONS[index]}
+              <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[11px] font-bold text-[#7F5AF0] shadow-sm ring-1 ring-[#7F5AF0]/20">
+                {index + 1}
+              </span>
+            </div>
+
+            {/* Card body */}
+            <div className="w-full rounded-2xl border border-slate-100 bg-white px-6 py-6 shadow-sm transition-shadow hover:shadow-md">
+              <h3 className="mb-2 text-lg font-bold text-slate-800">{card.title}</h3>
+              <p className="text-sm leading-relaxed text-slate-500">{card.desc}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 }
