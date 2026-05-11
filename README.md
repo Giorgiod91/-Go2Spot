@@ -1,12 +1,12 @@
 # Go2Spot 🌍
+# Live Demo : https://go2-spot.vercel.app/
 
 **Your Ultimate Travel Companion**  
 Go2Spot helps you discover must-visit spots, party places, and hidden gems in any city you travel to. Powered by a machine learning backend built with Python, Go2Spot offers personalized recommendations tailored to your preferences and travel style. Whether you're planning a vacation or a spontaneous weekend getaway, complete with pictures, detailed descriptions, and user reviews. With Go2Spot, you’ll never miss out on the top experiences wherever you go!
-![image](https://github.com/user-attachments/assets/bbe52774-0f86-4349-aaa0-41e15481fdce)
 
+<img width="1675" height="926" alt="image" src="https://github.com/user-attachments/assets/14c768fa-274f-40bf-9571-c4cf665dd6fa" />
+<img width="1686" height="886" alt="image" src="https://github.com/user-attachments/assets/defb8f9b-7a76-4b36-85e0-c1e98a2c7397" />
 
-![image](https://github.com/user-attachments/assets/670e4e76-e816-48ef-ad52-a72cda5f0526)
-![image](https://github.com/user-attachments/assets/cec68bcf-811a-4620-a2d0-265a52c5a9db)
 
 
 
