@@ -3,77 +3,119 @@
 import React from "react";
 import { motion } from "motion/react";
 import { LandingPageCards } from "./LandingPageCards";
-import { useRouter } from "next/navigation";
+
+const cards = [
+  {
+    title: "Pick a Vibe",
+    src: "/vibe.png",
+    desc: "Choose an activity — hiking, bars, museums, food, nightlife and more.",
+  },
+  {
+    title: "Browse Spots",
+    src: "/cards1.png",
+    desc: "See top-rated places with images, tags, and ratings across 5 cities.",
+  },
+  {
+    title: "See on Map",
+    src: "/map.png",
+    desc: "Pin any spot and instantly see it on an interactive Google Map.",
+  },
+];
 
 function LandingPage() {
-  const router = useRouter();
-
-  const cards = [
-    {
-      title: "Pick a Vibe",
-      src: "/sagrada.png",
-      desc: "Choose a vibe or a city to explore.",
-    },
-    {
-      title: "Browse Spots",
-      src: "/cards1.png",
-      desc: "See top-rated places with images and tips.",
-    },
-    {
-      title: "See on Map",
-      src: "/onetwo.png",
-      desc: "Visualize your picks and plan your trip.",
-    },
-  ];
-  //:TODO: create a function that will use an intervall to activate the hover affect on the cards by its own for visual effect
-  // const changeHoverState =() =>{
-  //   setHovered={setHovered}
-  // }
-  // function change href on buttonclick so u get directed to the part with next.js router
-
-  const handleOnlick = () => {
-    router.push("#recommendation");
-  };
+  const scrollToExplore = () =>
+    document.getElementById("explore")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <div className="flex min-h-screen flex-col items-center px-6 py-20 text-base-content">
-      <motion.h1
-        initial={{ opacity: 0, y: 10 }}
+    <div className="relative flex min-h-screen w-full flex-col items-center overflow-hidden px-6 py-24 text-slate-800">
+      {/* Background blobs */}
+      <div className="pointer-events-none absolute -left-40 -top-40 h-[500px] w-[500px] rounded-full bg-[#7F5AF0]/8 blur-3xl" />
+      <div className="pointer-events-none absolute -right-40 top-1/3 h-[400px] w-[400px] rounded-full bg-[#FF49DB]/6 blur-3xl" />
+
+      {/* Badge */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="max-w-4xl text-center text-4xl font-bold leading-tight text-neutral-800 md:text-6xl dark:text-slate-200"
+        transition={{ duration: 0.5 }}
+        className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#7F5AF0]/20 bg-[#7F5AF0]/8 px-4 py-1.5 text-xs font-semibold text-[#7F5AF0] uppercase tracking-widest"
       >
-        Discover the most loved spots —
-        <span className="text-[#fecaca]"> powered by real reviews</span>
+        <span className="h-1.5 w-1.5 rounded-full bg-[#7F5AF0] animate-pulse" />
+        5 Cities · 25+ Spots · Live Map
+      </motion.div>
+
+      {/* Headline */}
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.65, delay: 0.1 }}
+        className="max-w-3xl text-center text-5xl font-extrabold leading-tight tracking-tight text-slate-900 md:text-7xl"
+      >
+        Discover the{" "}
+        <span className="bg-gradient-to-r from-[#7F5AF0] to-[#FF49DB] bg-clip-text text-transparent">
+          best spots
+        </span>{" "}
+        in any city.
       </motion.h1>
 
       <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        className="mt-6 max-w-2xl text-center text-lg text-neutral-600 dark:text-neutral-400"
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.22 }}
+        className="mt-6 max-w-xl text-center text-lg leading-relaxed text-slate-500"
       >
-        Go2Spot finds beautiful places, hidden gems, and photo-worthy views —
-        fast and effortlessly.
+        Go2Spot finds beautiful places, hidden gems, and photo-worthy views — filtered by your vibe, pinned on a live map.
       </motion.p>
 
+      {/* CTAs */}
       <motion.div
-        initial={{ opacity: 0, y: 10 }}
+        initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.6 }}
-        className="mt-10"
+        transition={{ duration: 0.55, delay: 0.35 }}
+        className="mt-10 flex flex-wrap items-center justify-center gap-4"
       >
-        {" "}
-        <button onClick={handleOnlick} className="relative p-[3px]">
-          <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500" />
-          <div className="group relative rounded-[6px] bg-black px-8 py-2 text-white transition duration-200 hover:bg-[#475569] hover:text-[#fecaca]">
-            Start Exploring
-          </div>
+        <button
+          onClick={scrollToExplore}
+          className="rounded-xl bg-[#7F5AF0] px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#7F5AF0]/25 transition hover:bg-[#6d46e8] hover:-translate-y-0.5"
+        >
+          Start Exploring →
+        </button>
+        <button
+          onClick={() => document.getElementById("map")?.scrollIntoView({ behavior: "smooth" })}
+          className="rounded-xl border border-slate-200 bg-white px-8 py-3.5 text-base font-semibold text-slate-700 shadow-sm transition hover:border-[#7F5AF0]/40 hover:text-[#7F5AF0]"
+        >
+          🗺️ Open Map
         </button>
       </motion.div>
 
-      <section className="mt-24 w-full max-w-6xl">
-        <h2 className="mb-10 text-center text-3xl font-semibold text-neutral-800 dark:text-neutral-200">
+      {/* Activity pills */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.55 }}
+        className="mt-8 flex flex-wrap justify-center gap-2"
+      >
+        {[
+          { e: "🥾", l: "Hiking" },
+          { e: "🍺", l: "Bar & Beer" },
+          { e: "🍕", l: "Food" },
+          { e: "🏛️", l: "Museums" },
+          { e: "🌿", l: "Parks" },
+          { e: "🎉", l: "Nightlife" },
+          { e: "📸", l: "Photo Spots" },
+          { e: "🏰", l: "Sightseeing" },
+        ].map((v) => (
+          <span
+            key={v.l}
+            className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 shadow-sm"
+          >
+            {v.e} {v.l}
+          </span>
+        ))}
+      </motion.div>
+
+      {/* How it works */}
+      <section className="mt-28 w-full max-w-5xl">
+        <h2 className="mb-10 text-center text-2xl font-bold text-slate-700">
           How It Works
         </h2>
         <LandingPageCards cards={cards} />
